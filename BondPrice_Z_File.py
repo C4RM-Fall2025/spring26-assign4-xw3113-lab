@@ -1,14 +1,11 @@
 
-
 def getBondPrice_Z(face, couponRate, times, yc):
-    
-    coupon = face * couponRate
-    bondPrice = 0
-    
-    cfs = [coupon] * len(times)
-    cfs[-1] = face
-    
-    for t, r, cf in zip(times, yc, cfs):
-        bondPrice = cf / ((1 + r) ** t)
-    
-    return(bondPrice)
+    pvcfsum = 0
+    cf = couponRate * face
+    for timesZ, ycZ in zip(times,yc):
+        pv = (1+ ycZ) **-timesZ
+        pvcf= pv*cf
+        #pvcfsum = pvcfsum + pvcf
+        pvcfsum += pvcf
+    bondprice = pvcfsum + pv*face
+    return(bondprice)
