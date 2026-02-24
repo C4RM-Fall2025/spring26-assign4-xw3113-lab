@@ -1,5 +1,3 @@
-
-
 def FizzBuzz(start, finish):
     outlist = []
     for i in range(start, finish + 1):
@@ -11,5 +9,4 @@ def FizzBuzz(start, finish):
             outlist.append("buzz")
         else:
             outlist.append(i)
-    
     return(outlist)
